@@ -10,6 +10,8 @@ import TvDetails from "./components/TvDetails";
 import PersonDetails from "./components/PersonDetails";
 import Trailer from "./components/partials/Trailer";
 import NotFound from "./components/NotFound";
+import SCDB from "./components/AboutSCDB.jsx";
+
 
 const App = () => {
     return (
@@ -19,21 +21,32 @@ const App = () => {
                 <Route path="/trending" element={<Trending />} />
                 <Route path="/popular" element={<Popular />} />
                 <Route path="/movie" element={<Movie />} />
+
+                {/* Movie Details and Nested Trailer Route */}
                 <Route path="/movie/details/:id" element={<Moviedetails />}>
                     <Route
                         path="/movie/details/:id/trailer"
                         element={<Trailer />}
                     />
                 </Route>
+
                 <Route path="/tv" element={<Tvshows />} />
+
+                {/* TV Details and Nested Trailer Route */}
                 <Route path="/tv/details/:id" element={<TvDetails />}>
                     <Route
                         path="/tv/details/:id/trailer"
                         element={<Trailer />}
                     />
                 </Route>
+
                 <Route path="/person" element={<People />} />
                 <Route path="/person/details/:id" element={<PersonDetails />} />
+
+                {/* New Route for About SCDB */}
+                <Route path="/SCDB" element={<SCDB />} />
+
+                {/* Catch-all for 404 - Should be the last route */}
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </div>
